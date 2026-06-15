@@ -1,12 +1,21 @@
-# Dados (não versionar arquivos grandes)
+# Dados (baixe o dataset do Kaggle e coloque na pasta data/)
 data/*.csv
 data/*.json
 data/*.parquet
 data/*.db
+data/*.zip
+data/*.tgz
+data/*.tar.gz
+data/*.xlsx
 
 # Jupyter
 .ipynb_checkpoints/
 *.ipynb_checkpoints
+
+# Ambiente virtual
+.venv/
+venv/
+env/
 
 # Python
 __pycache__/
