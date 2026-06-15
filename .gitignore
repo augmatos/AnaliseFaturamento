@@ -1,0 +1,28 @@
+# Dados (não versionar arquivos grandes)
+data/*.csv
+data/*.json
+data/*.parquet
+data/*.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+env/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Manter a pasta data no repositório
+!data/.gitkeep
