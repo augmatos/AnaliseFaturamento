@@ -136,12 +136,12 @@ def gera_overview():
         showlegend=False,
     ), row=1, col=1)
 
-    # Categorias (horizontal bar)
+    # Categorias (horizontal bar) — showscale=False para não vazar colorbar no subplot vizinho
     top10 = cats.head(10).sort_values('receita')
     fig.add_trace(go.Bar(
         x=top10['receita'], y=top10['categoria'],
         orientation='h',
-        marker=dict(color=top10['receita'], colorscale='Blues'),
+        marker=dict(color=top10['receita'], colorscale='Blues', showscale=False),
         showlegend=False,
     ), row=1, col=2)
 
@@ -154,10 +154,10 @@ def gera_overview():
         showlegend=False,
     ), row=2, col=1)
 
-    # Estados
+    # Estados — showscale=False para não vazar colorbar
     fig.add_trace(go.Bar(
         x=estados['estado'], y=estados['receita'],
-        marker=dict(color=estados['receita'], colorscale='Purples'),
+        marker=dict(color=estados['receita'], colorscale='Purples', showscale=False),
         showlegend=False,
     ), row=2, col=2)
 
@@ -224,7 +224,17 @@ def gera_categorias():
         title='Top 12 Categorias por Faturamento  (cor = satisfação média)',
     )
     fig.update_traces(texttemplate='R$ %{text:,.0f}', textposition='outside')
-    fig.update_layout(height=500, width=900, **LAYOUT)
+    fig.update_layout(
+        height=500, width=1050,
+        plot_bgcolor='white', paper_bgcolor='white',
+        font=dict(family='Arial', size=13),
+        margin=dict(l=40, r=200, t=60, b=40),
+        coloraxis_colorbar=dict(
+            x=1.01, xanchor='left',
+            len=0.8, thickness=18,
+        ),
+    )
+    fig.update_xaxes(range=[0, cats['receita'].max() * 1.22])
     path = os.path.join(OUT_DIR, 'categorias.png')
     fig.write_image(path, scale=2)
     print(f'Salvo: {path}')
