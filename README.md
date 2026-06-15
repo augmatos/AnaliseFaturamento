@@ -27,12 +27,32 @@ Os dados são carregados em um banco **SQLite** e analisados com **SQL puro** e 
 
 Dashboard interativo com filtro por estado, KPI cards e gráficos em tempo real.
 
+![Dashboard Overview](images/dashboard_overview.png)
+
 **Como rodar:**
 ```bash
 pip install -r requirements.txt
 python dashboard/app.py
 # Acesse: http://localhost:8050
 ```
+
+---
+
+## 📈 Insights do Dataset
+
+### Receita Mensal — R$ 15,4M em 96.478 pedidos entregues
+
+![Receita Mensal](images/receita_mensal.png)
+
+> Crescimento consistente de 7× entre Jan/2017 e Nov/2017. **Pico de R$ 1,15M em novembro de 2017** (Black Friday). Estabilização em torno de R$ 1,1M/mês no primeiro semestre de 2018.
+
+---
+
+### Top Categorias por Faturamento
+
+![Categorias](images/categorias.png)
+
+> **Health & Beauty** lidera com R$ 1,2M e nota média 4,1. **Watches & Gifts** em segundo com R$ 1,17M. Todas as 12 principais categorias mantêm satisfação acima de 3,9 — indicando boa consistência de qualidade.
 
 ---
 
