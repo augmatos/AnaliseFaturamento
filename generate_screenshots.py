@@ -136,12 +136,12 @@ def gera_overview():
         showlegend=False,
     ), row=1, col=1)
 
-    # Categorias (horizontal bar) — showscale=False para não vazar colorbar no subplot vizinho
+    # Categorias (horizontal bar) — cor fixa, sem colorscale para evitar colorbar
     top10 = cats.head(10).sort_values('receita')
     fig.add_trace(go.Bar(
         x=top10['receita'], y=top10['categoria'],
         orientation='h',
-        marker=dict(color=top10['receita'], colorscale='Blues', showscale=False),
+        marker_color='#2563eb',
         showlegend=False,
     ), row=1, col=2)
 
@@ -154,10 +154,10 @@ def gera_overview():
         showlegend=False,
     ), row=2, col=1)
 
-    # Estados — showscale=False para não vazar colorbar
+    # Estados — cor fixa, sem colorscale
     fig.add_trace(go.Bar(
         x=estados['estado'], y=estados['receita'],
-        marker=dict(color=estados['receita'], colorscale='Purples', showscale=False),
+        marker_color='#7c3aed',
         showlegend=False,
     ), row=2, col=2)
 
